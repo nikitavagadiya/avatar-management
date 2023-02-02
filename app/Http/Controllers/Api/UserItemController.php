@@ -52,7 +52,7 @@ class UserItemController extends Controller
             ]);
 
             if($validateItem->fails()){
-                return $this->sendError($validateItem->errors(),401);
+                return $this->sendError($validateItem->errors(),403);
             }
 
             //check if item already purchased or not to avoid duplicate enteries
@@ -80,13 +80,13 @@ class UserItemController extends Controller
                     }
                     else{
 
-                        return $this->sendNotifyMessage('Insufficient Amount in wallet',401);
+                        return $this->sendNotifyMessage('Insufficient Amount in wallet',403);
 
                     }
                 }
                 else{
 
-                    return $this->sendNotifyMessage('Item not found',401);
+                    return $this->sendNotifyMessage('Item not found',403);
 
                 }
             }
@@ -109,7 +109,7 @@ class UserItemController extends Controller
             ]);
 
             if($validateUser->fails()){
-                return $this->sendError($validateItem->errors(),401);
+                return $this->sendError($validateItem->errors(),403);
             }
             
             $this->unselectAllItems();

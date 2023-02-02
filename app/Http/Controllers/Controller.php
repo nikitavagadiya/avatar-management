@@ -29,6 +29,7 @@ class Controller extends BaseController
             $response = (object) [
                 'success' => true
                 , 'data'  => (object)$result
+                , 'message' => null
             ];
         } else {
             if(!is_array($result)) {
@@ -63,7 +64,7 @@ class Controller extends BaseController
     public function sendError($errorMessages = [], $code = 400) {
         $response = (object)[
             'success' => false,
-            'messages' => $errorMessages
+            'data' => $errorMessages
         ];
 
         return response()->json($response, $code);
@@ -77,7 +78,8 @@ class Controller extends BaseController
     public function sendNotifyMessage($messages, $code = 200) {
         $response = (object)[
             'success' => $code === 200 ? true : false,
-            'messages' => $messages
+            'data' => null,
+            'message' => $messages
         ];
 
         return response()->json($response, $code);

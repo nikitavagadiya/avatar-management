@@ -15,41 +15,46 @@ Highlight of the project.
 - After clone, go to the project and run `composer install`
 - Copy .env.example to .env and set the database credentials.
 - Run `php artisan migrate --seed`
+    This commande makes
+    
+        User : nikita@gmail.com / passoword
+        Default Category (11)
+        Item (50)
 
-Now you are all set to run the project : `php artisan serve`
+Now you are all set to run the project 
 
 ```sh
-127.0.0.1:8000
+http://localhost/avatar-management/api
 ```
 
 # API Details
     Header : Bearer Token of logged user and Accept : application/json
 
 - Login
-    Url : /auth/login
-    Methog : POST
-    Parameter : 
+    - Url : /auth/login
+    - Method : POST
+    - Parameter : 
         email => string
         password => string
 
 - Receive all items group by categories
-    Url : /get-categories-with-items
-    Methog : GET
+    - Url : /get-categories-with-items
+    - Method : GET
 
 - Receive the current avatar user state
-    Url : get-current-state-with-items
-    Methog : GET
+    - Url : /get-current-state-with-items
+    - Method : GET
 
-- Receive all items group by categories
-    Url : /buy-a-item
-    Methog : POST
-    Parameter : 
+- Buy a new item
+    - Url : /buy-a-item
+    - Method : POST
+    - Parameter : 
         item_id => string
 
-- Receive all items group by categories
-    Url : /change-avatar
-    Methog : POST
-    Parameter : 
+- Dress Up with a new set of items.
+    - Url : /change-avatar
+    - Method : POST
+    - Parameter : 
         items => associative array
 
-## For more details please check the file : API overview.txt
+## For more details please check the file : Avatar Management API.pdf
